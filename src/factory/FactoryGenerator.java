@@ -2,9 +2,9 @@ package factory;
 
 public class FactoryGenerator {
     public static AbstractFactory getFactory(String brand) {
-        if (brand.equalsIgnoreCase("Adidas")) {
+        if (brand.equalsIgnoreCase("adidas")) {
             return new AdidasFactory();
-        } else if (brand.equalsIgnoreCase("Nike")) {
+        } else if (brand.equalsIgnoreCase("nike")) {
             return new NikeFactory();
         }
         return null;

@@ -3,7 +3,6 @@ package adidas;
 public class AdidasShoes implements AdidasProduct {
     @Override
     public void makeAdidasProduct(){
-        System.out.println("Make Aidas shoes");
+        System.out.println("Make Adidas shoes");
     }
-
 }

@@ -1,16 +1,22 @@
-import adidas.AdidasProduct;
-import factory.AbstractFactory;
+import adapter.JSAdapter;
 import factory.FactoryGenerator;
+import factory.AbstractFactory;
+import adidas.AdidasProduct;
 import nike.NikeProduct;
 
 public class Main {
     public static void main(String[] args) {
-        AbstractFactory adidasFactory = FactoryGenerator.getFactory("Adidas");
-        AdidasProduct adidasProduct = adidasFactory.getAdidasProduct("Adidas shoes");
-        adidasProduct.makeAdidasProduct();
+        String brand = JSAdapter.getBrandFromJS();
+        System.out.println("Выбран бренд из JS: " + brand);
 
-        AbstractFactory nikeFactory = FactoryGenerator.getFactory("Nike");
-        NikeProduct nikeProduct = nikeFactory.getNikeProduct("Nike shoes");
-        nikeProduct.makeNikeProduct();
+        AbstractFactory factory = FactoryGenerator.getFactory(brand);
+
+        if (brand.equals("adidas")) {
+            AdidasProduct shoes = factory.getAdidasProduct("Adidas shoes");
+            shoes.makeAdidasProduct();
+        } else if (brand.equals("nike")) {
+            NikeProduct shoes = factory.getNikeProduct("Nike shoes");
+            shoes.makeNikeProduct();
+        }
     }
 }
